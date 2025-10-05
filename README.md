@@ -69,11 +69,11 @@ Top-level folders:
   - `Cart.jsx` — central product listing component used on `/shop` and embedded in the home page. Fetches GET `/coffee` and renders cards with Buy/Wishlist actions. It supports two render modes: `embedded` (used in Home & Shop) and full-page.
   - `Home.jsx` — marketing hero, features, embedded product gallery (uses `Cart` with `embedded` true) and an image gallery.
 
-## Client routes
+-## Client routes
 
 Routes are declared in `src/main.jsx` using `createBrowserRouter`.
 
-- `/` (index) — Home page. The loader fetches `GET https://coffee-store-server-two-kappa.vercel.app/` (server) and returns the list of coffees.
+- `/` (index) — Home page. In development the route loader fetches `GET http://localhost:5000/coffee` (see `src/main.jsx`). In production the app should point to the deployed API (see "Production API" below).
 - `/login` — Login page
 - `/register` — Registration page
 - `/update` — Update form (expects `?id=` query parameter)
@@ -86,7 +86,27 @@ Routes are declared in `src/main.jsx` using `createBrowserRouter`.
 
 Routing notes:
 - `PrivateRoute` is used to restrict admin/add pages to authenticated users. Ensure `AuthProvider` is correctly mounted (it is in `main.jsx`).
-- The client uses hard-coded URLs to the server (`https://coffee-store-server-two-kappa.vercel.app/coffee`); w
+
+## Production API (Vercel)
+
+The server API has been deployed to Vercel and is available at:
+
+- https://coffee-store-server-two-kappa.vercel.app/coffee
+
+Use this base URL in production for all API requests. Recommended approach for the client is to set an environment variable `VITE_API_BASE` to the base host and use it when composing fetch URLs. Example value:
+
+VITE_API_BASE=https://coffee-store-server-two-kappa.vercel.app
+
+Then, in the client, compose calls as:
+
+```
+// runtime/build-time in Vite
+const apiBase = import.meta.env.VITE_API_BASE || 'http://localhost:5000'
+fetch(`${apiBase}/coffee`)
+```
+
+This allows local development to use `localhost` while production builds use the Vercel-hosted API.
+
 ## Server API (coffee-store-server)
 
 The server is a minimal Express app using the official MongoDB driver. It connects to Atlas using `DB_user` and `DB_pass` env vars.
@@ -178,7 +198,7 @@ PORT=5000
 
   npm run dev
 
-  Vite will start (default http://localhost:5173). The app hits the backend at `http://localhost:5000` — confirm both services are running.
+  Vite will start (default http://localhost:5173). The app hits the backend at `https://coffee-store-server-two-kappa.vercel.app` — confirm both services are running.
 
 4. Test the app
 
@@ -188,7 +208,7 @@ PORT=5000
 
 - Client: Run `npm run build` in `coffee_client` to generate production assets (Vite). Deploy the `dist/` output to a static host (Firebase Hosting, Netlify, Vercel, etc.). When deploying the client, ensure the Firebase env vars are provided by the host (Vite's build uses import.meta.env values at build-time).
 - Server: The Express server can be deployed to Node hosts (Heroku, Render, Railway, Fly.io, etc.). Provide `DB_user` and `DB_pass` as environment variables on the host.
-- CORS / API host: The client currently fetches directly to `http://localhost:5000`. For production, change client fetch URLs to the deployed API host, or implement a runtime API base via env var (recommended). Example approach: create VITE_API_BASE and use `${import.meta.env.VITE_API_BASE}/coffee`.
+- CORS / API host: The client currently fetches directly to `https://coffee-store-server-two-kappa.vercel.app`. For production, change client fetch URLs to the deployed API host, or implement a runtime API base via env var (recommended). Example approach: create VITE_API_BASE and use `${import.meta.env.VITE_API_BASE}/coffee`.
 
 
 
