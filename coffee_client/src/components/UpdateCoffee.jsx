@@ -10,7 +10,7 @@ const UpdateCoffee = () => {
 
     useEffect(()=>{
         if (!id) return
-        fetch(`http://localhost:5000/coffee/${id}`)
+        fetch(`https://coffee-store-server-two-kappa.vercel.app/coffee/${id}`)
             .then(res => res.json())
             .then(data => setCoffee(data))
             .catch(err => console.error(err))
@@ -32,7 +32,7 @@ const UpdateCoffee = () => {
             photo: form.photo.value,
         }
         setLoading(true)
-        fetch(`http://localhost:5000/coffee/${id}`, {
+        fetch(`https://coffee-store-server-two-kappa.vercel.app/coffee/${id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(updated)

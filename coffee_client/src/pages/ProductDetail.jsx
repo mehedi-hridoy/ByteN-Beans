@@ -10,7 +10,7 @@ export default function ProductDetail(){
   useEffect(()=>{
     if (!id) return
     setLoading(true)
-    fetch(`http://localhost:5000/coffee/${id}`)
+    fetch(`https://coffee-store-server-two-kappa.vercel.app/coffee/${id}`)
       .then(res => res.json())
       .then(data => setCoffee(data))
       .catch(err => console.error(err))

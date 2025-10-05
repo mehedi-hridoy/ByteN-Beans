@@ -17,7 +17,7 @@ export default function Registration(){
 		register(email, password, name, photo)
 			.then(res => res.user)
 			.then(user => {
-				fetch('http://localhost:5000/users',{ 
+				fetch('https://coffee-store-server-two-kappa.vercel.app/users',{ 
 					method:'POST',
 					headers:{'content-type':'application/json'},
 					body: JSON.stringify({name: user.displayName, email: user.email})

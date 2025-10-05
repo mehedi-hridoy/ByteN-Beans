@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
         loader: async () => {
-          const res = await fetch('http://localhost:5000/coffee');
+          const res = await fetch('https://coffee-store-server-two-kappa.vercel.app/coffee');
           if (!res.ok) throw new Response('Failed to load coffees', { status: res.status });
           return res.json();
         }
