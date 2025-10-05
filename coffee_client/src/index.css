@@ -1,0 +1,82 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap');
+
+:root{
+    --page-bg: #f3efe9;
+}
+
+html,body,#root{
+    height:100%;
+}
+
+body{
+    margin:0;
+    font-family: 'Raleway', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background-color: var(--page-bg);
+    color: #000; 
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+h1,h2,h3,h4{
+    font-family: 'Rancho', cursive;
+}
+
+
+.label-text{ color:#2b2b2b; }
+.input, .textarea{ background-color: #ffffff; }
+
+
+.grid-16 {
+    display: grid;
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+}
+
+
+.grid-16 .content-12 {
+    grid-column: 3 / span 12; 
+}
+
+.input, .textarea, input, textarea, select, button {
+    color: #000;
+}
+
+::placeholder{
+    color: #9ca3af;
+}
+
+
+.interactive-transition {
+    transition: all 180ms ease-in-out;
+}
+
+input.input, .input {
+    transition: box-shadow 180ms ease, transform 120ms ease;
+}
+input.input:focus, .input:focus, textarea:focus {
+    box-shadow: 0 4px 12px rgba(45,31,22,0.06);
+    transform: translateY(-1px);
+}
+
+button, .btn {
+    transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+}
+button:hover, .btn:hover {
+    transform: translateY(-2px);
+}
+
+button:hover, .btn:hover, .btn:hover {
+    background-color: #fffaf6; 
+    border-color: rgba(45,31,22,0.9) !important;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.06), 0 6px 18px rgba(45,31,22,0.06);
+    color: #2b1b17;
+}
+
+
+.btn-google {
+    display:flex; align-items:center; gap:10px; justify-content:center;
+}
+.btn-google svg { width:20px; height:20px }
