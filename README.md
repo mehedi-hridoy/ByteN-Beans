@@ -1,6 +1,8 @@
 # Byte & Beans — Coffee Store
 
-This repository contains a small e-commerce-like example for a coffee shop built with React (Vite) as the client and a minimal Express + MongoDB server for product management. The live site is available at: https://coffee-a2be7.web.app/
+This repository contains a small e-commerce-like example for a coffee shop built with React (Vite) as the client and a minimal Express + MongoDB server for product management. The live site is available at: https://coffee-a2be7.web.app/ (frontend)
+
+Note: The production backend (API) is deployed at: https://byten-beans-1.onrender.com
 
 ## Table of contents
 - Overview
