@@ -25,7 +25,7 @@ const AddCoffee = () => {
     setLoading(true);
 
         // sending data to the server
-        fetch('https://coffee-store-server-two-kappa.vercel.app/coffee', {
+        fetch('https://byten-beans-1.onrender.com/coffee', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

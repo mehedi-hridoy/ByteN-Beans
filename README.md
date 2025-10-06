@@ -91,11 +91,11 @@ Routing notes:
 
 The server API has been deployed to Vercel and is available at:
 
-- https://coffee-store-server-two-kappa.vercel.app/coffee
+- https://byten-beans-1.onrender.com/coffee
 
 Use this base URL in production for all API requests. Recommended approach for the client is to set an environment variable `VITE_API_BASE` to the base host and use it when composing fetch URLs. Example value:
 
-VITE_API_BASE=https://coffee-store-server-two-kappa.vercel.app
+VITE_API_BASE=https://byten-beans-1.onrender.com
 
 Then, in the client, compose calls as:
 
@@ -198,7 +198,7 @@ PORT=5000
 
   npm run dev
 
-  Vite will start (default http://localhost:5173). The app hits the backend at `https://coffee-store-server-two-kappa.vercel.app` — confirm both services are running.
+  Vite will start (default http://localhost:5173). The app hits the backend at `https://byten-beans-1.onrender.com` — confirm both services are running.
 
 4. Test the app
 
@@ -208,7 +208,7 @@ PORT=5000
 
 - Client: Run `npm run build` in `coffee_client` to generate production assets (Vite). Deploy the `dist/` output to a static host (Firebase Hosting, Netlify, Vercel, etc.). When deploying the client, ensure the Firebase env vars are provided by the host (Vite's build uses import.meta.env values at build-time).
 - Server: The Express server can be deployed to Node hosts (Heroku, Render, Railway, Fly.io, etc.). Provide `DB_user` and `DB_pass` as environment variables on the host.
-- CORS / API host: The client currently fetches directly to `https://coffee-store-server-two-kappa.vercel.app`. For production, change client fetch URLs to the deployed API host, or implement a runtime API base via env var (recommended). Example approach: create VITE_API_BASE and use `${import.meta.env.VITE_API_BASE}/coffee`.
+- CORS / API host: The client currently fetches directly to `https://byten-beans-1.onrender.com`. For production, change client fetch URLs to the deployed API host, or implement a runtime API base via env var (recommended). Example approach: create VITE_API_BASE and use `${import.meta.env.VITE_API_BASE}/coffee`.
 
 
 

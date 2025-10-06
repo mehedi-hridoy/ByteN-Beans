@@ -10,7 +10,7 @@ export default function Cart({ embedded = false, banner = false }){
 
   useEffect(()=>{
     setLoading(true)
-    fetch('https://coffee-store-server-two-kappa.vercel.app/coffee')
+    fetch('https://byten-beans-1.onrender.com/coffee')
       .then(res => res.json())
       .then(data => setCoffees(data || []))
       .catch(err => console.error(err))
@@ -171,7 +171,7 @@ export default function Cart({ embedded = false, banner = false }){
                       <div className="col-span-12 md:col-span-2 p-4 flex md:flex-col items-center justify-end gap-3">
                         <Link to={`/product/${c._id}`} title="View" className="w-10 h-10 rounded-md bg-[#e9dcc9] flex items-center justify-center text-[#3b1f1f] hover:scale-105 transition-transform"><AiOutlineEye /></Link>
                         <Link to={`/update?id=${c._id}`} className="w-10 h-10 rounded-md bg-[#2d1f16] text-white flex items-center justify-center hover:scale-105 transition-transform"><AiOutlineEdit /></Link>
-                        <button onClick={()=>{ if(confirm('Delete this coffee?')) fetch(`https://coffee-store-server-two-kappa.vercel.app/coffee/${c._id}`,{method:'DELETE'}).then(()=>window.location.reload()) }} className="w-10 h-10 rounded-md bg-red-500 text-white flex items-center justify-center hover:scale-105 transition-transform"><AiOutlineDelete /></button>
+                        <button onClick={()=>{ if(confirm('Delete this coffee?')) fetch(`https://byten-beans-1.onrender.com/coffee/${c._id}`,{method:'DELETE'}).then(()=>window.location.reload()) }} className="w-10 h-10 rounded-md bg-red-500 text-white flex items-center justify-center hover:scale-105 transition-transform"><AiOutlineDelete /></button>
                       </div>
                     </div>
                   </div>

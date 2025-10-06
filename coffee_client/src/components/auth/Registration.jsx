@@ -17,7 +17,7 @@ export default function Registration(){
 		register(email, password, name, photo)
 			.then(res => res.user)
 			.then(user => {
-				fetch('https://coffee-store-server-two-kappa.vercel.app/users',{ 
+				fetch('https://byten-beans-1.onrender.com/users',{ 
 					method:'POST',
 					headers:{'content-type':'application/json'},
 					body: JSON.stringify({name: user.displayName, email: user.email})

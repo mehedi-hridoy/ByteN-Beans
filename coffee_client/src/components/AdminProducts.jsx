@@ -8,7 +8,7 @@ export default function AdminProducts(){
 
   const fetchCoffees = () => {
     setLoading(true)
-    fetch('https://coffee-store-server-two-kappa.vercel.app/coffee')
+    fetch('https://byten-beans-1.onrender.com/coffee')
       .then(res => res.json())
       .then(data => setCoffees(data || []))
       .catch(err => console.error(err))
@@ -19,7 +19,7 @@ export default function AdminProducts(){
 
   const handleDelete = (id) => {
     if (!confirm('Delete this coffee?')) return
-    fetch(`https://coffee-store-server-two-kappa.vercel.app/coffee/${id}`, { method: 'DELETE' })
+    fetch(`https://byten-beans-1.onrender.com/coffee/${id}`, { method: 'DELETE' })
       .then(res => res.json())
       .then(res => {
         if (res.deletedCount) {
